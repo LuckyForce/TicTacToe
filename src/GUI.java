@@ -75,7 +75,12 @@ public class GUI extends JFrame
         aktualisiereAnzeige();
         setResizable(false);
         setVisible(true);
-        popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.X,Linke Maustaste, O,Rechte Maustaste.Druecke Mausrad um diesen Text nochmal anzuzeigen.Um das Spiel neuzustarten drehe das Mausrad. Um den Spielmodi zu wechseln drehe das Mausrad", false);
+        Spielanleitung();
+    }
+
+    public void Spielanleitung()
+    {
+        popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.\nX,Linke Maustaste, O,Rechte Maustaste.\nDruecke Mausrad um diesen Text nochmal anzuzeigen.\nUm das Spiel neuzustarten drehe das Mausrad.\nUm den Spielmodi zu wechseln drehe das Mausrad", false);
     }
 
     /** Aktualisiert die graphische Darstellung. D.h. alle im 2-dimensionalen char-Array 

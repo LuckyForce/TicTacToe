@@ -277,7 +277,7 @@ public class Game
          */
         if(maustaste==2)
         {
-            Spielanleitung();
+            oberflaeche.Spielanleitung();
         }
         if(maustaste==3)
         {
@@ -312,11 +312,6 @@ public class Game
                 oberflaeche.popup("Spielinfo:", "Der Spieler O ist am Zug!", true);
             }
         }
-    }
-
-    public void Spielanleitung()
-    {
-        oberflaeche.popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.\nX,Linke Maustaste, O,Rechte Maustaste.\nDruecke Mausrad um diesen Text nochmal anzuzeigen.\nUm das Spiel neuzustarten drehe das Mausrad.\nUm den Spielmodi zu wechseln drehe das Mausrad", false);
     }
 
     public void modi()
