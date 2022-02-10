@@ -9,38 +9,38 @@ import java.util.Random;
  */
 /*
  * In dieser Klasse, die zumindest vom Aufbau her von mir vorgeben ist, soll das Spiel 
- * "Tic Tac Toe" implementiert werden. Vorgegeben ist ein sinnvolles Gerüst von
+ * "Tic Tac Toe" implementiert werden. Vorgegeben ist ein sinnvolles Geruest von
  * Methoden, deren Implementierung aber noch fehlt. Details enthalten die Kommentare bei 
- * den Methoden. Natürlich können weitere Hilfsmethoden realisiert werden, diese sollten 
- * dann aber 'private' und damit für den Anwender nicht sichtbar sein. Zu Testzwecken kann 
- * man sie natürlich kurzfristig als 'public' deklarieren.
+ * den Methoden. Natuerlich koennen weitere Hilfsmethoden realisiert werden, diese sollten 
+ * dann aber 'private' und damit fuer den Anwender nicht sichtbar sein. Zu Testzwecken kann 
+ * man sie natuerlich kurzfristig als 'public' deklarieren.
  */
 public class Game
 {
     /* Diese Initialisierung des Arrays ist nur als anschauliches Beispiel gedacht.
-     * Natürlich ist es sinnvoller im Konstruktor die Methode "neuesSpiel()" aufzurufen,
-     * die dann diese Initialisierung übernimmt und dabei alle Felder "leer" setzt.
+     * Natuerlich ist es sinnvoller im Konstruktor die Methode "neuesSpiel()" aufzurufen,
+     * die dann diese Initialisierung uebernimmt und dabei alle Felder "leer" setzt.
      */
     private char[][] gesetzt; // = {{'X',' ',' '},
-    //    {' ','O',' '},  // (mögl. Initiialisierung des Arrays)
+    //    {' ','O',' '},  // (moegl. Initiialisierung des Arrays)
     //    {' ',' ',' '}};
     private boolean xIstAnDerReihe = true;
     public boolean spielIstZuEnde = false;
     public boolean spielHatBegonnen = false;
     public int ComputerModus=0;; //um gegen den Computer zu spielen
     public boolean ZweitesMalDruecken=false;
-    public int neuesSpielcounter=1; //wird benötigt da sonst die NeuesSpiel Methode direkt nach schließen des Popup aufgerufen wird
+    public int neuesSpielcounter=1; //wird benoetigt da sonst die NeuesSpiel Methode direkt nach schliessen des Popup aufgerufen wird
     private int anzahlgesetzt=0;
     Random random = new Random();
     private int randomnumber1;
     private int randomnumber2;
     private int randomnumber3;
     private int randomnumberextra;
-    // die Referenz 'oberflaeche', stellt eine Verbindung zur graphischen Oberfläche her.
+    // die Referenz 'oberflaeche', stellt eine Verbindung zur graphischen Oberflaeche her.
     private GUI oberflaeche;
 
     /**
-     * Erzeugt die grafische Oberfäche für das Spiel und ruft dann ... 
+     * Erzeugt die grafische Oberflaeche fuer das Spiel und ruft dann ... 
      */
     public Game()
     {
@@ -49,25 +49,25 @@ public class Game
             {' ',' ',' '},          
             {' ',' ',' '}};  //            NUR EIN BEISPIEL!
 
-        // erzeugt die grafische Oberfläche und zeigt die Spielfelder an
+        // erzeugt die grafische Oberflaeche und zeigt die Spielfelder an
         oberflaeche = new GUI("Tic Tac Toe", gesetzt, this);
 
-        // hier können alle weiteren für das Spiel erforderlichen Initialisierungen
+        // hier koennen alle weiteren fuer das Spiel erforderlichen Initialisierungen
         // erfolgen...
     }
 
     /** Setzt ein bestimmtes Zeichen in ein Spielfeld.     *
-     *  ACHTUNG: diese Beispiel-Methode enthält NOCH KEINEERLEI Fehlerüberprüfungen!
+     *  ACHTUNG: diese Beispiel-Methode enthaelt NOCH KEINEERLEI Fehlerueberpruefungen!
      *  
-     * @param zeile zulässige Werte sind 0 bis Anzahl der Zeilen - 1
-     * @param spalte zulässige Werte sind 0 bis Anzahl der Spalten - 1
+     * @param zeile zulaessige Werte sind 0 bis Anzahl der Zeilen - 1
+     * @param spalte zulaessige Werte sind 0 bis Anzahl der Spalten - 1
      * @param zeichen das neue Zeichen, das an der angeg. Position dargestellt werden soll.
-     *                Möglich sind grundsätzlich alle Buchstaben (auch Leerzeichen).
+     *                Moeglich sind grundsaetzlich alle Buchstaben (auch Leerzeichen).
 
      */
     public void setze(int zeile, int spalte, char zeichen)
     {
-        // ändern der Daten (des 2-dim. Arrays)...
+        // Aendern der Daten (des 2-dim. Arrays)...
         gesetzt[zeile][spalte] = zeichen; 
         // ... und Aktualisierung der Anzeioge
         oberflaeche.aktualisiereAnzeige();
@@ -80,7 +80,7 @@ public class Game
     {
         // - neruliches korr. Initialisieren des 2-dim. Arrays
         // - und aktualisieren der Anzeige
-        // - sonstige Spielzustände zurücksetzen
+        // - sonstige Spielzustaende zuruecksetzen
         for(int i=0; i<3; i++)
         {
             for(int j=0; j<3; j++)
@@ -101,10 +101,10 @@ public class Game
      */
     public void setzeX(int zeile, int spalte)
     {
-        /* Soll für Spieler "X" ein Kreuzchen setzen. Das soll natürlich nur an Stellen
-         * möglich sein, wo noch kein "X" oder "O" gesetzt wurde.
+        /* Soll fuer Spieler "X" ein Kreuzchen setzen. Das soll natuerlich nur an Stellen
+         * moeglich sein, wo noch kein "X" oder "O" gesetzt wurde.
          * 
-         * Weiters darf die Methode nur einmal aufgerufen werden, dann muß ein Aufruf von 
+         * Weiters darf die Methode nur einmal aufgerufen werden, dann muss ein Aufruf von 
          * "setzeO()" erfolgen und erst danach darf diese Methode wieder einen Spielzug
          * erlauben.
          * 
@@ -112,7 +112,7 @@ public class Game
          * Fehlermeldung in der Art "Der andere Spieler ist am Zug!" ausgeben.
          *
          * 
-         * Abschließend ist die Methode "pruefeSpielstand() aufzurufen.
+         * Abschliessend ist die Methode "pruefeSpielstand() aufzurufen.
          */
         ZweitesMalDruecken=false;
         if(!spielHatBegonnen)
@@ -137,8 +137,8 @@ public class Game
     public void setzeO(int zeile, int spalte)
     {
         /* Verhalten analog zu Methode "setzeX()" 
-        Man könnte beide Methoden auch zu einer zusammenfassen 
-        und das zu setzende Zeichen als zusätzlichen Parameter übergeben
+        Man koennte beide Methoden auch zu einer zusammenfassen 
+        und das zu setzende Zeichen als zusaetzlichen Parameter uebergeben
          */
         ZweitesMalDruecken=false;
         if(!spielHatBegonnen)
@@ -175,17 +175,17 @@ public class Game
         int DiagonalYrauf=2;
         int unentschieden=0;
         //Wie viele in der Reihe bereist gleich sind
-        /* Diese Methode soll überprüfen ob von den 'X' oder den 'O' 3 horizontal, 
+        /* Diese Methode soll ueberpruefen ob von den 'X' oder den 'O' 3 horizontal, 
          * vertikal oder diagonal in einer Reihe sind.
-         * Ist dies der Fall, dann soll der Gewinnerbuchstabe zurückgegeben werden 
+         * Ist dies der Fall, dann soll der Gewinnerbuchstabe zurueckgegeben werden 
          * oder direkt ausgegeben werden (z.B.: "Spieler X hat gewonnen").
-         * Danach soll kein weiterer Zug mehr möglich sein, d.h. Aufrufe von 
+         * Danach soll kein weiterer Zug mehr moeglich sein, d.h. Aufrufe von 
          * "setzeX()" oder "setzeO()" sollen in diesem Zustand wirkungslos bleiben.
-         * Erst nach einem Neustart des Spiels soll das wieder möglich sein.
+         * Erst nach einem Neustart des Spiels soll das wieder moeglich sein.
          * 
          * Anmerkung: zu Testzwecken ist es sinnvoll diese Methode "public" zu deklarieren,
          * sobald sie funktioniert, wird sie aber nur mehr von den setze...()-Methoden 
-         * aufgerufen und kann dann auch auf "private" geändert werden.
+         * aufgerufen und kann dann auch auf "private" geaendert werden.
          */
         for(int i=0; i<3; i++)
         {
@@ -245,33 +245,33 @@ public class Game
         {
             spielIstZuEnde=true;
             oberflaeche.popup("Spielinfo:", "Spieler X hat gewonnen", false);
-            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drück irgendwo im Programm hin oder drehe das Mausrad", false);
+            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
         }
         else if(counterYHorizontal==3||counterYVertikal==3||counterYDiagonalrunter==3||counterYDiagonalrauf==3)
         {
             spielIstZuEnde=true;
             oberflaeche.popup("Spielinfo:", "Spieler O hat gewonnen", false);
-            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drück irgendwo im Programm hin oder drehe das Mausrad", false);
+            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
         }
         else if(unentschieden==9)
         {
             spielIstZuEnde=true;
             oberflaeche.popup("Spielinfo:", "Unentschieden!!!", false);
-            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drück irgendwo im Programm hin oder drehe das Mausrad", false);
+            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
         }
     }
 
-    /** Diese Methode wird von der graphischen Oberfläche aufgerufen, sobald eine Taste
-     * gedrückt wurde. Als Information wird mitgeliefert in welcher Zeile und Spalte, 
-     * welche Maustaste gedrückt wurde (1=links, 2=mitte, 3=rechts). 
+    /** Diese Methode wird von der graphischen Oberflaeche aufgerufen, sobald eine Taste
+     * gedrueckt wurde. Als Information wird mitgeliefert in welcher Zeile und Spalte, 
+     * welche Maustaste gedrueckt wurde (1=links, 2=mitte, 3=rechts). 
      *
      * Diese Methode kann verwendet werden um den Spielfeldinhalt entsprechend der eigenen
-     * Spielelogik zu veränden ;-)
+     * Spielelogik zu veraenden ;-)
      */
     public void mausKlick(int zeile, int spalte, int maustaste)
     {  
         /*
-        System.out.println("Taste gedrückt:");
+        System.out.println("Taste gedrueckt:");
         System.out.println("  Position: Zeile=" + zeile + ", Spalte=" + spalte);
         System.out.println("  Maustaste: " + maustaste);
          */
@@ -285,7 +285,7 @@ public class Game
             {
                 // Mit der oberflaeche.popup(...)-Methode kannst Du ein Popup mit Titel und Text anzeigen
                 // false ... INFO, true ... FEHLER - Nachricht
-                //oberflaeche.popup("KLICK: ", "Taste " + maustaste + " gedrückt, Spalte: " +spalte + ", Zeile: " + zeile, false);
+                //oberflaeche.popup("KLICK: ", "Taste " + maustaste + " gedrueckt, Spalte: " +spalte + ", Zeile: " + zeile, false);
                 if(gesetzt[zeile][spalte]==' ')
                 {
                     setzeO(zeile, spalte);
@@ -301,7 +301,7 @@ public class Game
             {
                 // Mit der oberflaeche.popup(...)-Methode kannst Du ein Popup mit Titel und Text anzeigen
                 // false ... INFO, true ... FEHLER - Nachricht
-                //oberflaeche.popup("KLICK: ", "Taste " + maustaste + " gedrückt, Spalte: " +spalte + ", Zeile: " + zeile, false);
+                //oberflaeche.popup("KLICK: ", "Taste " + maustaste + " gedrueckt, Spalte: " +spalte + ", Zeile: " + zeile, false);
                 if(gesetzt[zeile][spalte]==' ')
                 {
                     setzeX(zeile, spalte);
@@ -316,7 +316,7 @@ public class Game
 
     public void Spielanleitung()
     {
-        oberflaeche.popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.X,Linke Maustaste, O,Rechte Maustaste.Drücke Mausrad um diesen Text nochmal anzuzeigen.Um das Spiel neuzustarten drehe das Mausrad. Um den Spielmodi zu wechseln drehe das Mausrad", false);
+        oberflaeche.popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.\nX,Linke Maustaste, O,Rechte Maustaste.\nDruecke Mausrad um diesen Text nochmal anzuzeigen.\nUm das Spiel neuzustarten drehe das Mausrad.\nUm den Spielmodi zu wechseln drehe das Mausrad", false);
     }
 
     public void modi()

@@ -3,26 +3,26 @@ import java.awt.event.*;
 import javax.swing.*;
 
 /* Eigentlich wollte ich diese Klasse nur in Form einer class-Datei (und damit ohne Quelltext)
- * dem BlueJ-Ordner beilegen. Damit könnte sie verwendet, aber nicht im Quelltext angezeigt oder
- * verändert werden. Leider hat das auf einigen Schulrechnern nicht funktioniert.
- * Bitte hier keine Änderungen vornehmen. Das nötige Wissen dazu folgt erst im 2. Jahrgang!
+ * dem BlueJ-Ordner beilegen. Damit koennte sie verwendet, aber nicht im Quelltext angezeigt oder
+ * veraendert werden. Leider hat das auf einigen Schulrechnern nicht funktioniert.
+ * Bitte hier keine Aenderungen vornehmen. Das noetige Wissen dazu folgt erst im 2. Jahrgang!
  */
 public class GUI extends JFrame
 {
     private JButton[][] buttons;       // "Darstellungseigenschaften" der Felder (JButtons)
-    private char[][] settings;         // eine Referenz auf das übergebene Array
-    private Game spiel;                // eine Referenz auf die Spiele-Instanz für den "Rückruf"
+    private char[][] settings;         // eine Referenz auf das uebergebene Array
+    private Game spiel;                // eine Referenz auf die Spiele-Instanz fuer den "Rueckruf"
     private MouseListener mListener;
     private MouseWheelListener mwListener;
-    /** Erzeugt die graphische Oberfläche für das einfache Spiel. Sie ist aus simplen "JButtons" 
+    /** Erzeugt die graphische Oberflaeche fuer das einfache Spiel. Sie ist aus simplen "JButtons" 
      * aufgebaut, die in einem sogenannten "GridLayout" (Gitter) angeordnet sind. Die Anzahl dieser
-     * Felder richtet sich nach der Anzahl der Felder des übergegeben 2-dimensionalen Arrays.
+     * Felder richtet sich nach der Anzahl der Felder des uebergegeben 2-dimensionalen Arrays.
      * 
      * @param titel Text der in der Titelleiste des Fensters angezeigt wird.
-     * @param gesetzt 2-dimensinonales Array von char Feldern. Grundsätzlich kann ein char-Feld
-     * jeden beliebigen Buchstaben enthalten, für das Spiel sollten aber bevorzugt die Großbuchstaben
-     * 'X', 'O' oder das Leerzeichen ' ' verwendet werden (die Felder werden dann hier automatisch grün,
-     * rot oder grau eingefärbt). Alle anderen Buchstaben werden ebenfalls nur grau hinterlegt.
+     * @param gesetzt 2-dimensinonales Array von char Feldern. Grundsaetzlich kann ein char-Feld
+     * jeden beliebigen Buchstaben enthalten, fuer das Spiel sollten aber bevorzugt die Grossbuchstaben
+     * 'X', 'O' oder das Leerzeichen ' ' verwendet werden (die Felder werden dann hier automatisch gruen,
+     * rot oder grau eingefaerbt). Alle anderen Buchstaben werden ebenfalls nur grau hinterlegt.
      * @param spiel Eine Referenz auf die Spielklasse Game um dort die Methoden mausKlick(...) aufzurufen.
      * (wird diese Parameter null gesetzt, dann erfolgt der Aufruf dieser Methode nicht).
      */
@@ -39,10 +39,10 @@ public class GUI extends JFrame
             init();
         }
         else
-            System.err.println("Kein gültiges Array übergeben!");
+            System.err.println("Kein gueltiges Array uebergeben!");
     }
 
-    /** Aubau und Initialisierung der grafischen Oberfläche */
+    /** Aubau und Initialisierung der grafischen Oberflaeche */
     private void init()
     {
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -75,11 +75,11 @@ public class GUI extends JFrame
         aktualisiereAnzeige();
         setResizable(false);
         setVisible(true);
-        popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.X,Linke Maustaste, O,Rechte Maustaste.Drücke Mausrad um diesen Text nochmal anzuzeigen.Um das Spiel neuzustarten drehe das Mausrad. Um den Spielmodi zu wechseln drehe das Mausrad", false);
+        popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.X,Linke Maustaste, O,Rechte Maustaste.Druecke Mausrad um diesen Text nochmal anzuzeigen.Um das Spiel neuzustarten drehe das Mausrad. Um den Spielmodi zu wechseln drehe das Mausrad", false);
     }
 
     /** Aktualisiert die graphische Darstellung. D.h. alle im 2-dimensionalen char-Array 
-     * durchgeführten Änderungen werden zur Anzeige gebracht.
+     * durchgefuehrten Aenderungen werden zur Anzeige gebracht.
      */
     public void aktualisiereAnzeige()
     {
@@ -100,7 +100,7 @@ public class GUI extends JFrame
     }
 
     /** Wird aufgerufen wenn eine Aktion mit der Maus stattgefunden hat, stellt fest
-     * über welchen Button die Aktion stattfand, welche Maustaste dabei gedrückt wurde
+     * Ueber welchen Button die Aktion stattfand, welche Maustaste dabei gedrueckt wurde
      * und gibt diese Information an die Methode mausKlick(...) in der Game-Klasse weiter.
      * (nur wenn die Referenze auf die Spielklasse Game gesetzt wurde - 2. Konstruktor)
      */
