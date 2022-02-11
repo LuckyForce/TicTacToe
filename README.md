@@ -11,4 +11,5 @@ I made this game in first grade of HTL in order of a an assignment.
     4. If all 9 squares are filled and no player has 3 in a row, then the game is a draw.
 
 ## Controls
-    
+
+## Screenshots    
