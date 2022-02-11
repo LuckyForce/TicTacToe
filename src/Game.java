@@ -38,12 +38,16 @@ public class Game
     private int randomnumberextra;
     // die Referenz 'oberflaeche', stellt eine Verbindung zur graphischen Oberflaeche her.
     private GUI oberflaeche;
+    //language
+    private String language;
 
     /**
      * Erzeugt die grafische Oberflaeche fuer das Spiel und ruft dann ... 
      */
     public Game()
     {
+        //language
+        language = "en";
         // erzeugt das Array / die Spielfelder      
         gesetzt = new char[][] {{' ',' ',' '},   // (Initialisierung des Arrays im Konstruktor)     
             {' ',' ',' '},          
@@ -54,6 +58,14 @@ public class Game
 
         // hier koennen alle weiteren fuer das Spiel erforderlichen Initialisierungen
         // erfolgen...
+    }
+
+    /**
+     * Returned die Spiel Sprache.
+     * @return language
+     */
+    public String getLanguage() {
+        return language;
     }
 
     /** Setzt ein bestimmtes Zeichen in ein Spielfeld.     *
@@ -244,20 +256,41 @@ public class Game
         if(counterXHorizontal==3||counterXVertikal==3||counterXDiagonalrunter==3||counterXDiagonalrauf==3)
         {
             spielIstZuEnde=true;
-            oberflaeche.popup("Spielinfo:", "Spieler X hat gewonnen", false);
-            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
+            switch (language) {
+                case "de":
+                    oberflaeche.popup("Spielinfo:", "Spieler X hat gewonnen", false);
+                    oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
+                    break;
+                default:
+                    oberflaeche.popup("Game info:", "Player X has won", false);
+                    oberflaeche.popup("Game info:", "If you want to play again, click somewhere in the program or rotate the mouse wheel", false);
+            }
         }
         else if(counterYHorizontal==3||counterYVertikal==3||counterYDiagonalrunter==3||counterYDiagonalrauf==3)
         {
             spielIstZuEnde=true;
-            oberflaeche.popup("Spielinfo:", "Spieler O hat gewonnen", false);
-            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
+            switch (language) {
+                case "de":
+                    oberflaeche.popup("Spielinfo:", "Spieler O hat gewonnen", false);
+                    oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
+                    break;
+                default:
+                    oberflaeche.popup("Game info:", "Player O has won", false);
+                    oberflaeche.popup("Game info:", "If you want to play again, click somewhere in the program or rotate the mouse wheel", false);
+            }
         }
         else if(unentschieden==9)
         {
             spielIstZuEnde=true;
-            oberflaeche.popup("Spielinfo:", "Unentschieden!!!", false);
-            oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
+            switch (language) {
+                case "de":
+                    oberflaeche.popup("Spielinfo:", "Unentschieden", false);
+                    oberflaeche.popup("Spielinfo:", "Wenn du nochmal spielen willst drueck irgendwo im Programm hin oder drehe das Mausrad", false);
+                    break;
+                default:
+                    oberflaeche.popup("Game info:", "It's a draw", false);
+                    oberflaeche.popup("Game info:", "If you want to play again, click somewhere in the program or rotate the mouse wheel", false);
+            }
         }
     }
 
@@ -290,10 +323,22 @@ public class Game
                 {
                     setzeO(zeile, spalte);
                 }else{
-                    oberflaeche.popup("Spielinfo:", "Dieses Feld ist bereits belegt", true);
+                    switch (language) {
+                        case "de":
+                            oberflaeche.popup("Spielinfo:", "Diese Position ist bereits belegt", false);
+                            break;
+                        default:
+                            oberflaeche.popup("Game info:", "This position is already taken", false);
+                    }
                 }
             }else{
-                oberflaeche.popup("Spielinfo:", "Der Spieler X ist am Zug!", true);
+                switch (language) {
+                    case "de":
+                        oberflaeche.popup("Spielinfo:", "Der Spieler X ist am Zug!", false);
+                        break;
+                    default:
+                        oberflaeche.popup("Game info:", "Player X is on the move!", false);
+                }
             }
         }
         if(maustaste==1){
@@ -306,10 +351,22 @@ public class Game
                 {
                     setzeX(zeile, spalte);
                 }else{
-                    oberflaeche.popup("Spielinfo:", "Dieses Feld ist bereits belegt", true);
+                    switch (language) {
+                        case "de":
+                            oberflaeche.popup("Spielinfo:", "Diese Position ist bereits belegt", false);
+                            break;
+                        default:
+                            oberflaeche.popup("Game info:", "This position is already taken", false);
+                    }
                 }
             }else{
-                oberflaeche.popup("Spielinfo:", "Der Spieler O ist am Zug!", true);
+                switch (language) {
+                    case "de":
+                        oberflaeche.popup("Spielinfo:", "Der Spieler O ist am Zug!", false);
+                        break;
+                    default:
+                        oberflaeche.popup("Game info:", "Player O is on the move!", false);
+                }
             }
         }
     }

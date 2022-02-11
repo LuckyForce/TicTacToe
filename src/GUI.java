@@ -80,7 +80,13 @@ public class GUI extends JFrame
 
     public void Spielanleitung()
     {
-        popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.\nX,Linke Maustaste, O,Rechte Maustaste.\nDruecke Mausrad um diesen Text nochmal anzuzeigen.\nUm das Spiel neuzustarten drehe das Mausrad.\nUm den Spielmodi zu wechseln drehe das Mausrad", false);
+        switch (spiel.getLanguage()){
+            case "de":
+                popup("Spielanleitung", "Spieler X und O. 3 in einer Reihe=Gewonnen.\nX,Linke Maustaste, O,Rechte Maustaste.\nDruecke Mausrad um diesen Text nochmal anzuzeigen.\nUm das Spiel neuzustarten drehe das Mausrad.\nUm den Spielmodi zu wechseln drehe das Mausrad", false);
+                break;
+            default:
+                popup("Game instructions", "Player X and O. 3 in a row=Won.\nX,Left mouse button, O,Right mouse button.\nPress mouse wheel to see this text again.\nTo restart the game turn the mouse wheel.\nTo change the game mode turn the mouse wheel.", false);
+        }
     }
 
     /** Aktualisiert die graphische Darstellung. D.h. alle im 2-dimensionalen char-Array 
@@ -151,15 +157,33 @@ public class GUI extends JFrame
                 if(spiel.ComputerModus==0)
                 {
                     spiel.ComputerModus++;
-                    popup("Spielinfo", "Du spielst jetzt gegen den Computer als X", false);
+                    switch (spiel.getLanguage()){
+                        case "de":
+                            popup("Spielinfo", "Du spielst jetzt gegen den Computer als X", false);
+                            break;
+                        default:
+                            popup("Game info", "You play now against the computer as X", false);
+                    }
                 }
                 else if(spiel.ComputerModus==1)
                 {
                     spiel.ComputerModus++;
-                    popup("Spielinfo", "Du spielst jetzt gegen den Computer als O", false);
+                    switch (spiel.getLanguage()){
+                        case "de":
+                            popup("Spielinfo", "Du spielst jetzt gegen den Computer als O", false);
+                            break;
+                        default:
+                            popup("Game info", "You play now against the computer as O", false);
+                    }
                 }else{
                     spiel.ComputerModus=0;
-                    popup("Spielinfo", "Du spielst jetzt den zwei Spieler Modus", false);
+                    switch (spiel.getLanguage()){
+                        case "de":
+                            popup("Spielinfo", "Du spielst jetzt den zwei Spieler Modus", false);
+                            break;
+                        default:
+                            popup("Game info", "You are now playing the two player mode", false);
+                    }
                 }
             }else{
                 if(!spiel.spielIstZuEnde)
