@@ -191,7 +191,13 @@ public class GUI extends JFrame
                     if(!spiel.ZweitesMalDruecken)
                     {                    
                         spiel.ZweitesMalDruecken=true;
-                        popup("Spielinfo:", "Wenn du das Spiel Neustarten willst drehe erneut das Mausrad", false);
+                        switch (spiel.getLanguage()){
+                            case "de":
+                                popup("Spielinfo", "Du hast das Spiel noch nicht gewonnen.\nDrehe Mausrad erneut um es neuzustarten", false);
+                                break;
+                            default:
+                                popup("Game info", "You have not won the game yet.\nTurn the mouse wheel again to restart", false);
+                        }
                     }else{
                         spiel.neuesSpiel();
                     }
