@@ -3,6 +3,9 @@
 A TicTacToe Game with an inbuilt algorithm that never loses.
 I made this game in first grade of HTL in order of a an assignment.
 
+## How to run this game
+
+
 ## How to play
 
 1. The game is played on a 3x3 grid.
