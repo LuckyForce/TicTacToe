@@ -1,4 +1,7 @@
-img# TicTacToe
+# TicTacToe
+
+<img src="screenshots/game.PNG" alt="Game Screenshot"></img>
+
 ## Description
 A TicTacToe Game with an inbuilt algorithm that never loses.<br>
 I made this game in first grade of HTL in order of a an assignment.<br>
@@ -23,6 +26,3 @@ Right click to place a O.<br>
 Mouse wheel to change Mode.<br>
 Mouse wheel click to show Game Instructions.<br>
 Mouse wheel mid game to restart the game.
-
-## Screenshots
-<img src="screenshots/game.PNG" alt="Game Screenshot"></img>
