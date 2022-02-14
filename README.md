@@ -1,13 +1,13 @@
 # TicTacToe
 
-<img src="screenshots/game.PNG" alt="Game Screenshot"></img>
-
 ## Description
 A TicTacToe Game with an inbuilt algorithm that never loses.<br>
 I made this game in first grade of HTL in order of a an assignment.<br>
 The GUI and the first structures were initially provided by my teacher Professor Schildberger.<br>
 The goal was to make a playable game by just programming the backend of the game and listen to the already given mouse events.<br>
 I extended this assignment by adding another listener for the mouse wheel and two more modes to the game where an algorithm containing switches and ifs is used to determine the next move.
+
+<img src="screenshots/game.PNG" alt="Game Screenshot"></img>
 
 ## How to run the game
 Right Click the executable JAR file and select "Run As" -> "Java Application"<br>
